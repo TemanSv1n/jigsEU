@@ -1,0 +1,23 @@
+{
+  "_fv": 39,
+  "_type": "potioneffect",
+  "definition": {
+    "effectName": "Disabled",
+    "icon": "liubia.png",
+    "color": {
+      "value": -12309749,
+      "falpha": 0.0
+    },
+    "isInstant": false,
+    "isBad": true,
+    "isBenefitical": false,
+    "renderStatusInInventory": true,
+    "renderStatusInHUD": true,
+    "onActiveTick": {
+      "name": "DisabledOnEffectActiveTick"
+    },
+    "onExpired": {
+      "name": "DisabledEffectExpires"
+    }
+  }
+}

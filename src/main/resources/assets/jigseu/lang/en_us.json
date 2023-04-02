@@ -1,1 +1,7 @@
-{}
+{
+  "block.jigseu.teleportator": "Teleportator",
+  "item.jigseu.stick_of_disability": "Stick Of Disability",
+  "effect.jigseu.disabled": "Disabled",
+  "biome.jigseu.brown_water": "Brown Water",
+  "itemGroup.tabevent_utils": "Event Utils"
+}

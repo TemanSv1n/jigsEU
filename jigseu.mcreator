@@ -1,9 +1,211 @@
 {
-  "mod_elements": [],
+  "mod_elements": [
+    {
+      "name": "BrownWater",
+      "type": "biome",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "brown_water",
+      "metadata": {
+        "files": [
+          "src/main/java/net/svisvi/jigseu/world/biome/BrownWaterBiome.java"
+        ]
+      }
+    },
+    {
+      "name": "EventUtils",
+      "type": "tab",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "event_utils",
+      "metadata": {
+        "files": []
+      }
+    },
+    {
+      "name": "StickOfDisability",
+      "type": "tool",
+      "sortid": 6,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "stick_of_disability",
+      "metadata": {
+        "files": [
+          "src/main/java/net/svisvi/jigseu/item/StickOfDisabilityItem.java",
+          "src/main/resources/assets/jigseu/models/item/stick_of_disability.json"
+        ]
+      }
+    },
+    {
+      "name": "Clicked",
+      "type": "procedure",
+      "sortid": 2,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "clicked",
+      "metadata": {
+        "files": [
+          "src/main/java/net/svisvi/jigseu/procedures/ClickedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Disabled",
+      "type": "potioneffect",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disabled",
+      "metadata": {
+        "files": [
+          "src/main/java/net/svisvi/jigseu/potion/DisabledMobEffect.java"
+        ]
+      }
+    },
+    {
+      "name": "DisabledActiveTickCondition",
+      "type": "procedure",
+      "sortid": 1,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disabled_active_tick_condition",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/svisvi/jigseu/procedures/DisabledActiveTickConditionProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "DisabledOnEffectActiveTick",
+      "type": "procedure",
+      "sortid": 3,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disabled_on_effect_active_tick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/svisvi/jigseu/procedures/DisabledOnEffectActiveTickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "DisabledEffectExpires",
+      "type": "procedure",
+      "sortid": 4,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disabled_effect_expires",
+      "metadata": {
+        "files": [
+          "src/main/java/net/svisvi/jigseu/procedures/DisabledEffectExpiresProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Teleportator",
+      "type": "block",
+      "sortid": 5,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "teleportator",
+      "metadata": {
+        "files": [
+          "src/main/java/net/svisvi/jigseu/block/TeleportatorBlock.java",
+          "src/main/resources/assets/jigseu/blockstates/teleportator.json",
+          "src/main/resources/assets/jigseu/models/item/teleportator.json",
+          "src/main/java/net/svisvi/jigseu/block/entity/TeleportatorBlockEntity.java",
+          "src/main/resources/assets/jigseu/models/block/teleportator.json"
+        ]
+      }
+    },
+    {
+      "name": "TeleportatorEntityWalksOnTheBlock",
+      "type": "procedure",
+      "sortid": 7,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "teleportator_entity_walks_on_the_block",
+      "metadata": {
+        "files": [
+          "src/main/java/net/svisvi/jigseu/procedures/TeleportatorEntityWalksOnTheBlockProcedure.java"
+        ],
+        "dependencies": []
+      }
+    },
+    {
+      "name": "TeleportatorOnBlockRightClicked",
+      "type": "procedure",
+      "sortid": 8,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "teleportator_on_block_right_clicked",
+      "metadata": {
+        "files": [
+          "src/main/java/net/svisvi/jigseu/procedures/TeleportatorOnBlockRightClickedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    }
+  ],
   "variable_elements": [],
   "sound_elements": [],
   "language_map": {
-    "en_us": {}
+    "en_us": {
+      "block.jigseu.teleportator": "Teleportator",
+      "item.jigseu.stick_of_disability": "Stick Of Disability",
+      "effect.jigseu.disabled": "Disabled",
+      "biome.jigseu.brown_water": "Brown Water",
+      "itemGroup.tabevent_utils": "Event Utils"
+    }
   },
   "foldersRoot": {
     "name": "~",
@@ -13,17 +215,19 @@
     "modid": "jigseu",
     "modName": "Jigsaw event utils",
     "version": "1.0.0",
-    "author": "Admin, MCreator",
+    "author": "Jigsaw squad",
     "websiteURL": "https://mcreator.net",
     "license": "Academic Free License v3.0",
     "disableForgeVersionCheck": true,
     "serverSideOnly": false,
+    "modPicture": "pack",
     "requiredMods": [],
     "dependencies": [],
     "dependants": [],
     "mcreatorDependencies": [],
     "currentGenerator": "forge-1.18.2",
-    "modElementsPackage": "net.mcreator.jigseu",
+    "credits": "Elephantum Fragariarum",
+    "modElementsPackage": "net.svisvi.jigseu",
     "lockBaseModFiles": false
   },
   "mcreatorVersion": 202300108712

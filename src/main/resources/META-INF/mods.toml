@@ -6,9 +6,10 @@ license="Academic Free License v3.0"
 modId="jigseu"
 version="1.0.0"
 displayName="Jigsaw event utils"
-credits="Created using mod maker MCreator - https://mcreator.net/about"
+credits="Elephantum Fragariarum"
 displayURL="https://mcreator.net"
-authors="Admin, MCreator"
+logoFile="logo.png"
+authors="Jigsaw squad"
 
 [[dependencies.jigseu]]
     modId="minecraft"
