@@ -157,7 +157,28 @@
         "files": [
           "src/main/java/net/svisvi/jigseu/procedures/TeleportatorEntityWalksOnTheBlockProcedure.java"
         ],
-        "dependencies": []
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
       }
     },
     {
@@ -194,15 +215,110 @@
           }
         ]
       }
+    },
+    {
+      "name": "XPaper",
+      "type": "item",
+      "sortid": 9,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "x_paper",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/jigseu/models/item/x_paper.json",
+          "src/main/java/net/svisvi/jigseu/item/XPaperItem.java"
+        ]
+      }
+    },
+    {
+      "name": "YPaper",
+      "type": "item",
+      "sortid": 10,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "y_paper",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/jigseu/models/item/y_paper.json",
+          "src/main/java/net/svisvi/jigseu/item/YPaperItem.java"
+        ]
+      }
+    },
+    {
+      "name": "ZPaper",
+      "type": "item",
+      "sortid": 11,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "z_paper",
+      "metadata": {
+        "files": [
+          "src/main/java/net/svisvi/jigseu/item/ZPaperItem.java",
+          "src/main/resources/assets/jigseu/models/item/z_paper.json"
+        ]
+      }
+    },
+    {
+      "name": "VopPaper",
+      "type": "item",
+      "sortid": 12,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "vop_paper",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/jigseu/models/item/vop_paper.json",
+          "src/main/java/net/svisvi/jigseu/item/VopPaperItem.java"
+        ]
+      }
+    },
+    {
+      "name": "VopPaperRightclickedOnBlock",
+      "type": "procedure",
+      "sortid": 13,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "vop_paper_rightclicked_on_block",
+      "metadata": {
+        "files": [
+          "src/main/java/net/svisvi/jigseu/procedures/VopPaperRightclickedOnBlockProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          }
+        ]
+      }
     }
   ],
   "variable_elements": [],
   "sound_elements": [],
   "language_map": {
     "en_us": {
+      "item.jigseu.y_paper": "Y Paper",
       "block.jigseu.teleportator": "Teleportator",
       "item.jigseu.stick_of_disability": "Stick Of Disability",
+      "item.jigseu.x_paper": "X Paper",
       "effect.jigseu.disabled": "Disabled",
+      "item.jigseu.vop_paper": "? Paper",
+      "item.jigseu.z_paper": "Z Paper",
       "biome.jigseu.brown_water": "Brown Water",
       "itemGroup.tabevent_utils": "Event Utils"
     }

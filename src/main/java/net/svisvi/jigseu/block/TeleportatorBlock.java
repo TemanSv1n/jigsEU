@@ -51,7 +51,7 @@ public class TeleportatorBlock extends Block implements EntityBlock {
 	@Override
 	public void stepOn(Level world, BlockPos pos, BlockState blockstate, Entity entity) {
 		super.stepOn(world, pos, blockstate, entity);
-		TeleportatorEntityWalksOnTheBlockProcedure.execute();
+		TeleportatorEntityWalksOnTheBlockProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), entity);
 	}
 
 	@Override
