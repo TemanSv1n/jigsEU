@@ -2,14 +2,14 @@
   "_fv": 39,
   "_type": "block",
   "definition": {
-    "texture": "enchanting_table_top",
-    "textureTop": "enchanting_table_top",
-    "textureLeft": "enchanting_table_top",
-    "textureFront": "enchanting_table_top",
-    "textureRight": "enchanting_table_top",
-    "textureBack": "enchanting_table_top",
-    "renderType": 10,
-    "customModelName": "Normal",
+    "texture": "chest_jigsawer",
+    "textureTop": "",
+    "textureLeft": "",
+    "textureFront": "",
+    "textureRight": "",
+    "textureBack": "",
+    "renderType": 11,
+    "customModelName": "Single texture",
     "rotationMode": 0,
     "enablePitch": false,
     "emissiveRendering": false,
@@ -33,11 +33,11 @@
         "subtract": false
       }
     ],
-    "name": "Teleportator",
+    "name": "Chest Jigsawer",
     "specialInfo": [
-      "Use papers named \"n.coordinate\"",
-      "you will understand after using ? paper on a random block; use clock for quantity of points",
-      "int only here"
+      "Ticking will be active",
+      "if block under this is GOLD_BLOCK; x1 should be > x2 (same for z); y is getting here by ONLY int; timer by clock",
+      "int only; use compass to specify the amount of taken slots in the chest above"
     ],
     "hardness": 1.0,
     "resistance": 10.0,
@@ -60,7 +60,7 @@
     "material": {
       "value": "IRON"
     },
-    "tickRate": 0,
+    "tickRate": 20,
     "tickRandomly": false,
     "isReplaceable": false,
     "canProvidePower": false,
@@ -122,10 +122,10 @@
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
     "onRightClicked": {
-      "name": "TeleportatorOnBlockRightClicked"
+      "name": "ChestJigsawerOnBlockRightClicked"
     },
-    "onEntityWalksOn": {
-      "name": "TeleportatorEntityWalksOnTheBlock"
+    "onTickUpdate": {
+      "name": "ChestJigsawerUpdateTick"
     },
     "spawnWorldTypes": [],
     "restrictionBiomes": [],

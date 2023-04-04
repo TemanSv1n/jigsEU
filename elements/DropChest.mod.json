@@ -2,12 +2,12 @@
   "_fv": 39,
   "_type": "block",
   "definition": {
-    "texture": "enchanting_table_top",
-    "textureTop": "enchanting_table_top",
-    "textureLeft": "enchanting_table_top",
-    "textureFront": "enchanting_table_top",
-    "textureRight": "enchanting_table_top",
-    "textureBack": "enchanting_table_top",
+    "texture": "beehive_end",
+    "textureTop": "beehive_end",
+    "textureLeft": "beehive_front_honey",
+    "textureFront": "beehive_front_honey",
+    "textureRight": "beehive_front_honey",
+    "textureBack": "beehive_front_honey",
     "renderType": 10,
     "customModelName": "Normal",
     "rotationMode": 0,
@@ -33,12 +33,8 @@
         "subtract": false
       }
     ],
-    "name": "Teleportator",
-    "specialInfo": [
-      "Use papers named \"n.coordinate\"",
-      "you will understand after using ? paper on a random block; use clock for quantity of points",
-      "int only here"
-    ],
+    "name": "Drop Chest",
+    "specialInfo": [],
     "hardness": 1.0,
     "resistance": 10.0,
     "hasGravity": false,
@@ -58,7 +54,7 @@
     "canRedstoneConnect": false,
     "lightOpacity": 15,
     "material": {
-      "value": "IRON"
+      "value": "WOOD"
     },
     "tickRate": 0,
     "tickRandomly": false,
@@ -83,7 +79,7 @@
     "isNotColidable": false,
     "isCustomSoundType": false,
     "soundOnStep": {
-      "value": "METAL"
+      "value": "WOOD"
     },
     "breakSound": {
       "value": ""
@@ -105,14 +101,18 @@
     "breakHarvestLevel": 1,
     "isBonemealable": false,
     "hasInventory": true,
-    "guiBoundTo": "<NONE>",
-    "openGUIOnRightClick": false,
-    "inventorySize": 0,
+    "guiBoundTo": "DropChestGUI",
+    "openGUIOnRightClick": true,
+    "inventorySize": 1,
     "inventoryStackSize": 64,
-    "inventoryDropWhenDestroyed": true,
+    "inventoryDropWhenDestroyed": false,
     "inventoryComparatorPower": true,
-    "inventoryOutSlotIDs": [],
-    "inventoryInSlotIDs": [],
+    "inventoryOutSlotIDs": [
+      0
+    ],
+    "inventoryInSlotIDs": [
+      0
+    ],
     "hasEnergyStorage": false,
     "energyInitial": 0,
     "energyCapacity": 400000,
@@ -121,11 +121,8 @@
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
-    "onRightClicked": {
-      "name": "TeleportatorOnBlockRightClicked"
-    },
-    "onEntityWalksOn": {
-      "name": "TeleportatorEntityWalksOnTheBlock"
+    "onStartToDestroy": {
+      "name": "DropChestPlayerStartsToDestroy"
     },
     "spawnWorldTypes": [],
     "restrictionBiomes": [],

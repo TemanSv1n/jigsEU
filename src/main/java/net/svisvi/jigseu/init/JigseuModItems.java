@@ -28,6 +28,8 @@ public class JigseuModItems {
 	public static final RegistryObject<Item> Y_PAPER = REGISTRY.register("y_paper", () -> new YPaperItem());
 	public static final RegistryObject<Item> Z_PAPER = REGISTRY.register("z_paper", () -> new ZPaperItem());
 	public static final RegistryObject<Item> VOP_PAPER = REGISTRY.register("vop_paper", () -> new VopPaperItem());
+	public static final RegistryObject<Item> CHEST_JIGSAWER = block(JigseuModBlocks.CHEST_JIGSAWER, JigseuModTabs.TAB_EVENT_UTILS);
+	public static final RegistryObject<Item> DROP_CHEST = block(JigseuModBlocks.DROP_CHEST, JigseuModTabs.TAB_EVENT_UTILS);
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block, CreativeModeTab tab) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties().tab(tab)));

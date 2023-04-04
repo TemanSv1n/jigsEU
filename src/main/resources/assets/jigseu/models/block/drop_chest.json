@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "jigseu:blocks/beehive_end",
+    "up": "jigseu:blocks/beehive_end",
+    "north": "jigseu:blocks/beehive_front_honey",
+    "east": "jigseu:blocks/beehive_front_honey",
+    "south": "jigseu:blocks/beehive_front_honey",
+    "west": "jigseu:blocks/beehive_front_honey",
+    "particle": "jigseu:blocks/beehive_end"
+  }
+}

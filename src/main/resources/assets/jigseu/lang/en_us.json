@@ -1,11 +1,14 @@
 {
   "item.jigseu.y_paper": "Y Paper",
-  "block.jigseu.teleportator": "Teleportator",
-  "item.jigseu.stick_of_disability": "Stick Of Disability",
+  "block.jigseu.chest_jigsawer": "Chest Jigsawer",
   "item.jigseu.x_paper": "X Paper",
   "effect.jigseu.disabled": "Disabled",
+  "biome.jigseu.brown_water": "Brown Water",
+  "itemGroup.tabevent_utils": "Event Utils",
+  "block.jigseu.teleportator": "Teleportator",
+  "block.jigseu.drop_chest": "Drop Chest",
+  "item.jigseu.stick_of_disability": "Stick Of Disability",
   "item.jigseu.vop_paper": "? Paper",
   "item.jigseu.z_paper": "Z Paper",
-  "biome.jigseu.brown_water": "Brown Water",
-  "itemGroup.tabevent_utils": "Event Utils"
+  "gui.jigseu.drop_chest_gui.label_only_showing_break_block_for_i": "Only showing. Break block for..."
 }

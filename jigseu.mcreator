@@ -306,6 +306,203 @@
           }
         ]
       }
+    },
+    {
+      "name": "PapersCommandScript",
+      "type": "procedure",
+      "sortid": 14,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "papers_command_script",
+      "metadata": {
+        "files": [
+          "src/main/java/net/svisvi/jigseu/procedures/PapersCommandScriptProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Papers",
+      "type": "command",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "papers",
+      "metadata": {
+        "files": [
+          "src/main/java/net/svisvi/jigseu/command/PapersCommand.java"
+        ]
+      }
+    },
+    {
+      "name": "ChestJigsawer",
+      "type": "block",
+      "sortid": 15,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chest_jigsawer",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/jigseu/models/block/chest_jigsawer.json",
+          "src/main/resources/assets/jigseu/blockstates/chest_jigsawer.json",
+          "src/main/resources/assets/jigseu/models/item/chest_jigsawer.json",
+          "src/main/java/net/svisvi/jigseu/block/entity/ChestJigsawerBlockEntity.java",
+          "src/main/java/net/svisvi/jigseu/block/ChestJigsawerBlock.java"
+        ]
+      }
+    },
+    {
+      "name": "ChestJigsawerOnBlockRightClicked",
+      "type": "procedure",
+      "sortid": 16,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chest_jigsawer_on_block_right_clicked",
+      "metadata": {
+        "files": [
+          "src/main/java/net/svisvi/jigseu/procedures/ChestJigsawerOnBlockRightClickedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "DropChest",
+      "type": "block",
+      "sortid": 17,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "drop_chest",
+      "metadata": {
+        "files": [
+          "src/main/java/net/svisvi/jigseu/block/entity/DropChestBlockEntity.java",
+          "src/main/java/net/svisvi/jigseu/block/DropChestBlock.java",
+          "src/main/resources/assets/jigseu/models/block/drop_chest.json",
+          "src/main/resources/assets/jigseu/models/item/drop_chest.json",
+          "src/main/resources/assets/jigseu/blockstates/drop_chest.json"
+        ]
+      }
+    },
+    {
+      "name": "ItemTakenDropChest",
+      "type": "procedure",
+      "sortid": 18,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_taken_drop_chest",
+      "metadata": {
+        "files": [
+          "src/main/java/net/svisvi/jigseu/procedures/ItemTakenDropChestProcedure.java"
+        ],
+        "dependencies": []
+      }
+    },
+    {
+      "name": "DropChestGUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "drop_chest_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/svisvi/jigseu/world/inventory/DropChestGUIMenu.java",
+          "src/main/java/net/svisvi/jigseu/client/gui/DropChestGUIScreen.java"
+        ]
+      }
+    },
+    {
+      "name": "ChestJigsawerUpdateTick",
+      "type": "procedure",
+      "sortid": 19,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chest_jigsawer_update_tick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/svisvi/jigseu/procedures/ChestJigsawerUpdateTickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "DropChestPlayerStartsToDestroy",
+      "type": "procedure",
+      "sortid": 20,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "drop_chest_player_starts_to_destroy",
+      "metadata": {
+        "files": [
+          "src/main/java/net/svisvi/jigseu/procedures/DropChestPlayerStartsToDestroyProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
     }
   ],
   "variable_elements": [],
@@ -313,14 +510,17 @@
   "language_map": {
     "en_us": {
       "item.jigseu.y_paper": "Y Paper",
-      "block.jigseu.teleportator": "Teleportator",
-      "item.jigseu.stick_of_disability": "Stick Of Disability",
+      "block.jigseu.chest_jigsawer": "Chest Jigsawer",
       "item.jigseu.x_paper": "X Paper",
       "effect.jigseu.disabled": "Disabled",
+      "biome.jigseu.brown_water": "Brown Water",
+      "itemGroup.tabevent_utils": "Event Utils",
+      "block.jigseu.teleportator": "Teleportator",
+      "block.jigseu.drop_chest": "Drop Chest",
+      "item.jigseu.stick_of_disability": "Stick Of Disability",
       "item.jigseu.vop_paper": "? Paper",
       "item.jigseu.z_paper": "Z Paper",
-      "biome.jigseu.brown_water": "Brown Water",
-      "itemGroup.tabevent_utils": "Event Utils"
+      "gui.jigseu.drop_chest_gui.label_only_showing_break_block_for_i": "Only showing. Break block for..."
     }
   },
   "foldersRoot": {

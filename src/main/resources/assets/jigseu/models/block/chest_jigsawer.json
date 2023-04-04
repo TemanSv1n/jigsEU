@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "jigseu:blocks/chest_jigsawer",
+    "particle": "jigseu:blocks/chest_jigsawer"
+  }
+}

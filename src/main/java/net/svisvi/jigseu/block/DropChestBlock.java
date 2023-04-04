@@ -1,9 +1,11 @@
 
 package net.svisvi.jigseu.block;
 
-import net.svisvi.jigseu.procedures.TeleportatorOnBlockRightClickedProcedure;
-import net.svisvi.jigseu.procedures.TeleportatorEntityWalksOnTheBlockProcedure;
-import net.svisvi.jigseu.block.entity.TeleportatorBlockEntity;
+import net.svisvi.jigseu.world.inventory.DropChestGUIMenu;
+import net.svisvi.jigseu.procedures.DropChestPlayerStartsToDestroyProcedure;
+import net.svisvi.jigseu.block.entity.DropChestBlockEntity;
+
+import net.minecraftforge.network.NetworkHooks;
 
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.level.storage.loot.LootContext;
@@ -16,34 +18,27 @@ import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.Containers;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.Component;
-import net.minecraft.core.Direction;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
 import java.util.List;
 import java.util.Collections;
 
-public class TeleportatorBlock extends Block implements EntityBlock {
-	public TeleportatorBlock() {
-		super(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(-1, 3600000));
-	}
+import io.netty.buffer.Unpooled;
 
-	@Override
-	public void appendHoverText(ItemStack itemstack, BlockGetter world, List<Component> list, TooltipFlag flag) {
-		super.appendHoverText(itemstack, world, list, flag);
-		list.add(new TextComponent("Use papers named \"n.coordinate\""));
-		list.add(new TextComponent("you will understand after using ? paper on a random block; use clock for quantity of points"));
-		list.add(new TextComponent("int only here"));
+public class DropChestBlock extends Block implements EntityBlock {
+	public DropChestBlock() {
+		super(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(-1, 3600000));
 	}
 
 	@Override
@@ -60,22 +55,27 @@ public class TeleportatorBlock extends Block implements EntityBlock {
 	}
 
 	@Override
-	public void stepOn(Level world, BlockPos pos, BlockState blockstate, Entity entity) {
-		super.stepOn(world, pos, blockstate, entity);
-		TeleportatorEntityWalksOnTheBlockProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), entity);
+	public void attack(BlockState blockstate, Level world, BlockPos pos, Player entity) {
+		super.attack(blockstate, world, pos, entity);
+		DropChestPlayerStartsToDestroyProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), entity);
 	}
 
 	@Override
 	public InteractionResult use(BlockState blockstate, Level world, BlockPos pos, Player entity, InteractionHand hand, BlockHitResult hit) {
 		super.use(blockstate, world, pos, entity, hand, hit);
-		int x = pos.getX();
-		int y = pos.getY();
-		int z = pos.getZ();
-		double hitX = hit.getLocation().x;
-		double hitY = hit.getLocation().y;
-		double hitZ = hit.getLocation().z;
-		Direction direction = hit.getDirection();
-		TeleportatorOnBlockRightClickedProcedure.execute(world, x, y, z, entity);
+		if (entity instanceof ServerPlayer player) {
+			NetworkHooks.openGui(player, new MenuProvider() {
+				@Override
+				public Component getDisplayName() {
+					return new TextComponent("Drop Chest");
+				}
+
+				@Override
+				public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
+					return new DropChestGUIMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(pos));
+				}
+			}, pos);
+		}
 		return InteractionResult.SUCCESS;
 	}
 
@@ -87,7 +87,7 @@ public class TeleportatorBlock extends Block implements EntityBlock {
 
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-		return new TeleportatorBlockEntity(pos, state);
+		return new DropChestBlockEntity(pos, state);
 	}
 
 	@Override
@@ -98,18 +98,6 @@ public class TeleportatorBlock extends Block implements EntityBlock {
 	}
 
 	@Override
-	public void onRemove(BlockState state, Level world, BlockPos pos, BlockState newState, boolean isMoving) {
-		if (state.getBlock() != newState.getBlock()) {
-			BlockEntity blockEntity = world.getBlockEntity(pos);
-			if (blockEntity instanceof TeleportatorBlockEntity be) {
-				Containers.dropContents(world, pos, be);
-				world.updateNeighbourForOutputSignal(pos, this);
-			}
-			super.onRemove(state, world, pos, newState, isMoving);
-		}
-	}
-
-	@Override
 	public boolean hasAnalogOutputSignal(BlockState state) {
 		return true;
 	}
@@ -117,7 +105,7 @@ public class TeleportatorBlock extends Block implements EntityBlock {
 	@Override
 	public int getAnalogOutputSignal(BlockState blockState, Level world, BlockPos pos) {
 		BlockEntity tileentity = world.getBlockEntity(pos);
-		if (tileentity instanceof TeleportatorBlockEntity be)
+		if (tileentity instanceof DropChestBlockEntity be)
 			return AbstractContainerMenu.getRedstoneSignalFromContainer(be);
 		else
 			return 0;

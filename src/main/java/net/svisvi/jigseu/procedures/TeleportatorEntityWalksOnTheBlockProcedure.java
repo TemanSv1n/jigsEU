@@ -2,11 +2,9 @@ package net.svisvi.jigseu.procedures;
 
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.util.Mth;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.core.BlockPos;
 
 import java.util.Random;
@@ -32,8 +30,6 @@ public class TeleportatorEntityWalksOnTheBlockProcedure {
 					return -1;
 				}
 			}.getValue(world, new BlockPos(x, y, z), "quan")));
-			if (entity instanceof Player _player && !_player.level.isClientSide())
-				_player.displayClientMessage(new TextComponent(("" + ("x" + ("" + randus).substring((int) 0, (int) (("" + randus).length() - 2))))), (false));
 			{
 				Entity _ent = entity;
 				_ent.teleportTo((new Object() {

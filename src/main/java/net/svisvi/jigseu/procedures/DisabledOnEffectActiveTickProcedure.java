@@ -1,5 +1,6 @@
 package net.svisvi.jigseu.procedures;
 
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
@@ -27,6 +28,7 @@ public class DisabledOnEffectActiveTickProcedure {
 				_entity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 21, 255, (false), (false)));
 			if (entity instanceof LivingEntity _entity)
 				_entity.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 21, 255, (false), (false)));
+			entity.setDeltaMovement(new Vec3((entity.getDeltaMovement().x()), (-2), (entity.getDeltaMovement().z())));
 		}
 	}
 }
