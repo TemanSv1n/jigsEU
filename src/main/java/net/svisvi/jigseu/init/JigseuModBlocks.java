@@ -5,6 +5,7 @@
 package net.svisvi.jigseu.init;
 
 import net.svisvi.jigseu.block.TeleportatorBlock;
+import net.svisvi.jigseu.block.KitdispenserBlock;
 import net.svisvi.jigseu.block.DropChestBlock;
 import net.svisvi.jigseu.block.ChestJigsawerBlock;
 import net.svisvi.jigseu.JigseuMod;
@@ -20,4 +21,5 @@ public class JigseuModBlocks {
 	public static final RegistryObject<Block> TELEPORTATOR = REGISTRY.register("teleportator", () -> new TeleportatorBlock());
 	public static final RegistryObject<Block> CHEST_JIGSAWER = REGISTRY.register("chest_jigsawer", () -> new ChestJigsawerBlock());
 	public static final RegistryObject<Block> DROP_CHEST = REGISTRY.register("drop_chest", () -> new DropChestBlock());
+	public static final RegistryObject<Block> KIT_DISPENSER = REGISTRY.register("kit_dispenser", () -> new KitdispenserBlock());
 }

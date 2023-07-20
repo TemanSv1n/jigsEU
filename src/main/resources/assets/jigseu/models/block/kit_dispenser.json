@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "jigseu:blocks/smithing_table_bottom",
+    "up": "jigseu:blocks/respawn_anchor_top_off",
+    "north": "jigseu:blocks/smithing_table_front",
+    "east": "jigseu:blocks/smithing_table_front",
+    "south": "jigseu:blocks/smithing_table_front",
+    "west": "jigseu:blocks/smithing_table_front",
+    "particle": "jigseu:blocks/smithing_table_bottom"
+  }
+}

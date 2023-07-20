@@ -4,7 +4,7 @@ license="Academic Free License v3.0"
 
 [[mods]]
 modId="jigseu"
-version="1.0.0"
+version="3.0.0"
 displayName="Jigsaw event utils"
 credits="Elephantum Fragariarum"
 displayURL="https://mcreator.net"

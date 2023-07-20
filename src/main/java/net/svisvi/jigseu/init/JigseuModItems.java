@@ -9,6 +9,7 @@ import net.svisvi.jigseu.item.YPaperItem;
 import net.svisvi.jigseu.item.XPaperItem;
 import net.svisvi.jigseu.item.VopPaperItem;
 import net.svisvi.jigseu.item.StickOfDisabilityItem;
+import net.svisvi.jigseu.item.PotionPotItem;
 import net.svisvi.jigseu.JigseuMod;
 
 import net.minecraftforge.registries.RegistryObject;
@@ -30,6 +31,8 @@ public class JigseuModItems {
 	public static final RegistryObject<Item> VOP_PAPER = REGISTRY.register("vop_paper", () -> new VopPaperItem());
 	public static final RegistryObject<Item> CHEST_JIGSAWER = block(JigseuModBlocks.CHEST_JIGSAWER, JigseuModTabs.TAB_EVENT_UTILS);
 	public static final RegistryObject<Item> DROP_CHEST = block(JigseuModBlocks.DROP_CHEST, JigseuModTabs.TAB_EVENT_UTILS);
+	public static final RegistryObject<Item> KIT_DISPENSER = block(JigseuModBlocks.KIT_DISPENSER, JigseuModTabs.TAB_EVENT_UTILS);
+	public static final RegistryObject<Item> POTION_POT = REGISTRY.register("potion_pot", () -> new PotionPotItem());
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block, CreativeModeTab tab) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties().tab(tab)));

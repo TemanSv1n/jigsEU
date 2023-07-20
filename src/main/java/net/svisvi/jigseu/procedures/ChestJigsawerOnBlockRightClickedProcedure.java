@@ -125,7 +125,7 @@ public class ChestJigsawerOnBlockRightClickedProcedure {
 			}
 			if (entity instanceof Player _player && !_player.level.isClientSide())
 				_player.displayClientMessage(new TextComponent(("var " + ("z" + str1.substring((int) 0, (int) iindex1)) + " = " + str1.substring((int) (iindex1 + 1), (int) (str1).length()))), (true));
-		} else if ((entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == Items.COMPASS) {
+		} else if ((entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == Items.NAME_TAG) {
 			if (!world.isClientSide()) {
 				BlockPos _bp = new BlockPos(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
