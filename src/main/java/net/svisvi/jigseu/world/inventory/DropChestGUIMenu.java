@@ -1,4 +1,3 @@
-
 package net.svisvi.jigseu.world.inventory;
 
 import net.svisvi.jigseu.init.JigseuModMenus;
@@ -6,7 +5,7 @@ import net.svisvi.jigseu.init.JigseuModMenus;
 import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.Level;
@@ -34,9 +33,9 @@ public class DropChestGUIMenu extends AbstractContainerMenu implements Supplier<
 	private boolean bound = false;
 
 	public DropChestGUIMenu(int id, Inventory inv, FriendlyByteBuf extraData) {
-		super(JigseuModMenus.DROP_CHEST_GUI, id);
+		super(JigseuModMenus.DROP_CHEST_GUI.get(), id); // Исправлено: добавлен .get()
 		this.entity = inv.player;
-		this.world = inv.player.level;
+		this.world = inv.player.level();
 		this.internal = new ItemStackHandler(1);
 		BlockPos pos = null;
 		if (extraData != null) {
@@ -53,7 +52,7 @@ public class DropChestGUIMenu extends AbstractContainerMenu implements Supplier<
 					itemstack = this.entity.getMainHandItem();
 				else
 					itemstack = this.entity.getOffhandItem();
-				itemstack.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+				itemstack.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 					this.internal = capability;
 					this.bound = true;
 				});
@@ -61,14 +60,14 @@ public class DropChestGUIMenu extends AbstractContainerMenu implements Supplier<
 				extraData.readByte(); // drop padding
 				Entity entity = world.getEntity(extraData.readVarInt());
 				if (entity != null)
-					entity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+					entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 						this.internal = capability;
 						this.bound = true;
 					});
 			} else { // might be bound to block
-				BlockEntity ent = inv.player != null ? inv.player.level.getBlockEntity(pos) : null;
+				BlockEntity ent = inv.player != null ? inv.player.level().getBlockEntity(pos) : null;
 				if (ent != null) {
-					ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+					ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 						this.internal = capability;
 						this.bound = true;
 					});

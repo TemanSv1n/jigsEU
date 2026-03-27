@@ -8,6 +8,6 @@ import net.minecraft.world.item.Item;
 
 public class ZPaperItem extends Item {
 	public ZPaperItem() {
-		super(new Item.Properties().tab(JigseuModTabs.TAB_EVENT_UTILS).stacksTo(64).rarity(Rarity.COMMON));
+		super(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON));
 	}
 }

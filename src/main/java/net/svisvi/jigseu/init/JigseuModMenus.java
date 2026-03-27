@@ -1,36 +1,34 @@
-
 /*
  *    MCreator note: This file will be REGENERATED on each build.
  */
 package net.svisvi.jigseu.init;
 
 import net.svisvi.jigseu.world.inventory.DropChestGUIMenu;
+import net.svisvi.jigseu.JigseuMod;
 
-import net.minecraftforge.network.IContainerFactory;
+import net.minecraftforge.registries.RegistryObject;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.common.extensions.IForgeMenuType;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
 import net.minecraft.world.inventory.MenuType;
-import net.minecraft.world.inventory.AbstractContainerMenu;
-
-import java.util.List;
-import java.util.ArrayList;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class JigseuModMenus {
-	private static final List<MenuType<?>> REGISTRY = new ArrayList<>();
-	public static final MenuType<DropChestGUIMenu> DROP_CHEST_GUI = register("drop_chest_gui", (id, inv, extraData) -> new DropChestGUIMenu(id, inv, extraData));
+	public static final DeferredRegister<MenuType<?>> REGISTRY =
+			DeferredRegister.create(ForgeRegistries.MENU_TYPES, JigseuMod.MODID);
 
-	private static <T extends AbstractContainerMenu> MenuType<T> register(String registryname, IContainerFactory<T> containerFactory) {
-		MenuType<T> menuType = new MenuType<T>(containerFactory);
-		menuType.setRegistryName(registryname);
-		REGISTRY.add(menuType);
-		return menuType;
-	}
+	public static final RegistryObject<MenuType<DropChestGUIMenu>> DROP_CHEST_GUI =
+			REGISTRY.register("drop_chest_gui",
+					() -> IForgeMenuType.create((id, inv, extraData) -> new DropChestGUIMenu(id, inv, extraData))
+			);
 
+	// Если нужно выполнить какую-то инициализацию после регистрации
 	@SubscribeEvent
-	public static void registerContainers(RegistryEvent.Register<MenuType<?>> event) {
-		event.getRegistry().registerAll(REGISTRY.toArray(new MenuType[0]));
+	public static void onCommonSetup(FMLCommonSetupEvent event) {
+		// Здесь можно добавить дополнительную инициализацию если нужно
 	}
 }

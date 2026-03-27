@@ -18,7 +18,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.Block;
 
 public class JigseuModBlockEntities {
-	public static final DeferredRegister<BlockEntityType<?>> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, JigseuMod.MODID);
+	public static final DeferredRegister<BlockEntityType<?>> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, JigseuMod.MODID);
 	public static final RegistryObject<BlockEntityType<?>> TELEPORTATOR = register("teleportator", JigseuModBlocks.TELEPORTATOR, TeleportatorBlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> CHEST_JIGSAWER = register("chest_jigsawer", JigseuModBlocks.CHEST_JIGSAWER, ChestJigsawerBlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> DROP_CHEST = register("drop_chest", JigseuModBlocks.DROP_CHEST, DropChestBlockEntity::new);

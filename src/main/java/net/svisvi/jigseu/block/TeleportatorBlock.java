@@ -6,8 +6,7 @@ import net.svisvi.jigseu.procedures.TeleportatorEntityWalksOnTheBlockProcedure;
 import net.svisvi.jigseu.block.entity.TeleportatorBlockEntity;
 
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.level.storage.loot.LootContext;
-import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -25,7 +24,6 @@ import net.minecraft.world.MenuProvider;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.Containers;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
@@ -35,15 +33,15 @@ import java.util.Collections;
 
 public class TeleportatorBlock extends Block implements EntityBlock {
 	public TeleportatorBlock() {
-		super(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(-1, 3600000));
+		super(BlockBehaviour.Properties.of().sound(SoundType.METAL).strength(-1, 3600000));
 	}
 
 	@Override
 	public void appendHoverText(ItemStack itemstack, BlockGetter world, List<Component> list, TooltipFlag flag) {
 		super.appendHoverText(itemstack, world, list, flag);
-		list.add(new TextComponent("Use papers named \"n.coordinate\""));
-		list.add(new TextComponent("you will understand after using ? paper on a random block; use clock for quantity of points"));
-		list.add(new TextComponent("int only here"));
+		list.add(Component.literal("Use papers named \"n.coordinate\""));
+		list.add(Component.literal("you will understand after using ? paper on a random block; use clock for quantity of points"));
+		list.add(Component.literal("int only here"));
 	}
 
 	@Override
@@ -52,7 +50,7 @@ public class TeleportatorBlock extends Block implements EntityBlock {
 	}
 
 	@Override
-	public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
+	public List<ItemStack> getDrops(BlockState state, LootParams.Builder builder) {
 		List<ItemStack> dropsOriginal = super.getDrops(state, builder);
 		if (!dropsOriginal.isEmpty())
 			return dropsOriginal;

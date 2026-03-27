@@ -12,5 +12,6 @@
   "item.jigseu.vop_paper": "? Paper",
   "item.jigseu.z_paper": "Z Paper",
   "gui.jigseu.drop_chest_gui.label_only_showing_break_block_for_i": "Only showing. Break block for...",
-  "item.jigseu.potion_pot": "Potion Pot"
+  "item.jigseu.potion_pot": "Potion Pot",
+  "item_group.jigseu.tabevent_utils": "Jigsaw Event Utils"
 }

@@ -7,7 +7,6 @@ import net.svisvi.jigseu.block.entity.KitdispenserBlockEntity;
 
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.level.material.PushReaction;
-import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -26,7 +25,7 @@ import net.minecraft.core.BlockPos;
 
 public class KitdispenserBlock extends Block implements EntityBlock {
 	public KitdispenserBlock() {
-		super(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(-1, 3600000).noDrops());
+		super(BlockBehaviour.Properties.of().sound(SoundType.METAL).strength(-1, 3600000));
 	}
 
 	@Override

@@ -40,7 +40,7 @@ public class StickOfDisabilityItem extends SwordItem {
 			public Ingredient getRepairIngredient() {
 				return Ingredient.EMPTY;
 			}
-		}, 3, 10f, new Item.Properties().tab(JigseuModTabs.TAB_EVENT_UTILS).fireResistant());
+		}, 3, 10f, new Item.Properties().fireResistant());
 	}
 
 	@Override

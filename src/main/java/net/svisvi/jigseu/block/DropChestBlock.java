@@ -9,7 +9,6 @@ import net.minecraftforge.network.NetworkHooks;
 
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.level.storage.loot.LootContext;
-import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -26,7 +25,6 @@ import net.minecraft.world.MenuProvider;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
@@ -38,7 +36,7 @@ import io.netty.buffer.Unpooled;
 
 public class DropChestBlock extends Block implements EntityBlock {
 	public DropChestBlock() {
-		super(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(-1, 3600000));
+		super(BlockBehaviour.Properties.of().sound(SoundType.WOOD).strength(-1, 3600000));
 	}
 
 	@Override
@@ -46,13 +44,13 @@ public class DropChestBlock extends Block implements EntityBlock {
 		return 15;
 	}
 
-	@Override
-	public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
-		List<ItemStack> dropsOriginal = super.getDrops(state, builder);
-		if (!dropsOriginal.isEmpty())
-			return dropsOriginal;
-		return Collections.singletonList(new ItemStack(this, 1));
-	}
+//	@Override
+//	public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
+//		List<ItemStack> dropsOriginal = super.getDrops(state, builder);
+//		if (!dropsOriginal.isEmpty())
+//			return dropsOriginal;
+//		return Collections.singletonList(new ItemStack(this, 1));
+//	}
 
 	@Override
 	public void attack(BlockState blockstate, Level world, BlockPos pos, Player entity) {
@@ -64,10 +62,10 @@ public class DropChestBlock extends Block implements EntityBlock {
 	public InteractionResult use(BlockState blockstate, Level world, BlockPos pos, Player entity, InteractionHand hand, BlockHitResult hit) {
 		super.use(blockstate, world, pos, entity, hand, hit);
 		if (entity instanceof ServerPlayer player) {
-			NetworkHooks.openGui(player, new MenuProvider() {
+			NetworkHooks.openScreen(player, new MenuProvider() {
 				@Override
 				public Component getDisplayName() {
-					return new TextComponent("Drop Chest");
+					return Component.literal("Drop Chest");
 				}
 
 				@Override

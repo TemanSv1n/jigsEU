@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "jigseu:items/flower_pot"
+    "layer0": "jigseu:item/flower_pot"
   }
 }

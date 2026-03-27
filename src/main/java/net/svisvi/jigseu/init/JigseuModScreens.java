@@ -1,4 +1,3 @@
-
 /*
  *    MCreator note: This file will be REGENERATED on each build.
  */
@@ -18,7 +17,8 @@ public class JigseuModScreens {
 	@SubscribeEvent
 	public static void clientLoad(FMLClientSetupEvent event) {
 		event.enqueueWork(() -> {
-			MenuScreens.register(JigseuModMenus.DROP_CHEST_GUI, DropChestGUIScreen::new);
+			// Нужно получить MenuType из RegistryObject с помощью .get()
+			MenuScreens.register(JigseuModMenus.DROP_CHEST_GUI.get(), DropChestGUIScreen::new);
 		});
 	}
 }

@@ -13,15 +13,9 @@
  */
 package net.svisvi.jigseu;
 
+import net.svisvi.jigseu.init.*;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
-
-import net.svisvi.jigseu.init.JigseuModTabs;
-import net.svisvi.jigseu.init.JigseuModMobEffects;
-import net.svisvi.jigseu.init.JigseuModItems;
-import net.svisvi.jigseu.init.JigseuModBlocks;
-import net.svisvi.jigseu.init.JigseuModBlockEntities;
-import net.svisvi.jigseu.init.JigseuModBiomes;
 
 import net.minecraftforge.network.simple.SimpleChannel;
 import net.minecraftforge.network.NetworkRegistry;
@@ -46,7 +40,7 @@ public class JigseuMod {
 	private static int messageID = 0;
 
 	public JigseuMod() {
-		JigseuModTabs.load();
+
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 		JigseuModBlocks.REGISTRY.register(bus);
 		JigseuModItems.REGISTRY.register(bus);
@@ -55,7 +49,8 @@ public class JigseuMod {
 
 		JigseuModMobEffects.REGISTRY.register(bus);
 
-		JigseuModBiomes.REGISTRY.register(bus);
+		JigseuModTabs.TABS.register(bus);
+		JigseuModMenus.REGISTRY.register(bus);
 
 	}
 

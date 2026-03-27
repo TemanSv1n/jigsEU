@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "jigseu:items/fishing_rod_cast"
+    "layer0": "jigseu:item/fishing_rod_cast"
   }
 }

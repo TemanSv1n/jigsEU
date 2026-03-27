@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "jigseu:items/x_paper"
+    "layer0": "jigseu:item/x_paper"
   }
 }

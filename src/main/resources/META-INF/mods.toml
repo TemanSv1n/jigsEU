@@ -4,17 +4,17 @@ license="Academic Free License v3.0"
 
 [[mods]]
 modId="jigseu"
-version="3.0.0"
+version="3.2.0"
 displayName="Jigsaw event utils"
 credits="Elephantum Fragariarum"
-displayURL="https://mcreator.net"
+displayURL="https://nkspo.ru"
 logoFile="logo.png"
 authors="Jigsaw squad"
 
 [[dependencies.jigseu]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.18.2]"
+    versionRange="[1.20.1]"
     ordering="NONE"
     side="BOTH"
 

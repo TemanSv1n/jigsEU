@@ -1,13 +1,13 @@
 
 package net.svisvi.jigseu.block;
 
+import net.minecraft.util.RandomSource;
 import net.svisvi.jigseu.procedures.ChestJigsawerUpdateTickProcedure;
 import net.svisvi.jigseu.procedures.ChestJigsawerOnBlockRightClickedProcedure;
 import net.svisvi.jigseu.block.entity.ChestJigsawerBlockEntity;
 
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.level.storage.loot.LootContext;
-import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -25,7 +25,6 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.Containers;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
@@ -36,15 +35,15 @@ import java.util.Collections;
 
 public class ChestJigsawerBlock extends Block implements EntityBlock {
 	public ChestJigsawerBlock() {
-		super(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(-1, 3600000));
+		super(BlockBehaviour.Properties.of().sound(SoundType.METAL).strength(-1, 3600000));
 	}
 
 	@Override
 	public void appendHoverText(ItemStack itemstack, BlockGetter world, List<Component> list, TooltipFlag flag) {
 		super.appendHoverText(itemstack, world, list, flag);
-		list.add(new TextComponent("Ticking will be active"));
-		list.add(new TextComponent("if block under this is GOLD_BLOCK; x1 should be > x2 (same for z); y is getting here by ONLY int; timer by clock"));
-		list.add(new TextComponent("int only; use compass to specify the amount of taken slots in the chest above"));
+		list.add(Component.literal("Ticking will be active"));
+		list.add(Component.literal("if block under this is GOLD_BLOCK; x1 should be > x2 (same for z); y is getting here by ONLY int; timer by clock"));
+		list.add(Component.literal("int only; use compass to specify the amount of taken slots in the chest above"));
 	}
 
 	@Override
@@ -52,13 +51,13 @@ public class ChestJigsawerBlock extends Block implements EntityBlock {
 		return 15;
 	}
 
-	@Override
-	public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
-		List<ItemStack> dropsOriginal = super.getDrops(state, builder);
-		if (!dropsOriginal.isEmpty())
-			return dropsOriginal;
-		return Collections.singletonList(new ItemStack(this, 1));
-	}
+//	@Override
+//	public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
+//		List<ItemStack> dropsOriginal = super.getDrops(state, builder);
+//		if (!dropsOriginal.isEmpty())
+//			return dropsOriginal;
+//		return Collections.singletonList(new ItemStack(this, 1));
+//	}
 
 	@Override
 	public void onPlace(BlockState blockstate, Level world, BlockPos pos, BlockState oldState, boolean moving) {
@@ -67,7 +66,7 @@ public class ChestJigsawerBlock extends Block implements EntityBlock {
 	}
 
 	@Override
-	public void tick(BlockState blockstate, ServerLevel world, BlockPos pos, Random random) {
+	public void tick(BlockState blockstate, ServerLevel world, BlockPos pos, RandomSource random) {
 		super.tick(blockstate, world, pos, random);
 		int x = pos.getX();
 		int y = pos.getY();
